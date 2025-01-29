@@ -43,7 +43,6 @@ for i in orientations.keys():
     for j in orientations.keys():
         temp.append(get_key(orientations, quaternion.mul(orientations[i], orientations[j])))
     mul_table.append(temp)
-print_matrix(mul_table)
 
 
 
