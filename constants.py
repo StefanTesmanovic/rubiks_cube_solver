@@ -1,11 +1,24 @@
 from sympy import sqrt
-from quaterninons import quaternion
+import quaternions
+from quaternions import quaternion
 
+def get_key(dict, value):
+    for i in dict.keys():
+        if dict[i].absH() == value.absH():
+            return i
+
+def print_matrix(matrix):
+    col_widths = [max(len(str(cell)) for cell in col) for col in zip(*matrix)]
+    for row in matrix:
+        print(" | ".join(f"{str(cell):<{col_widths[i]}}" for i, cell in enumerate(row)))
+
+'''
 a = quaternion(sqrt(2)/2, 0, 0, -sqrt(2)/2)
 b = quaternion(0, 1, 0, 0)
 c = quaternion.mul(a, b)
 
 print(f"({c.r}, {c.i}, {c.j}, {c.k})")
+'''
 
 orientations = {
     'a':quaternion(1, 0, 0, 0), # alpha
@@ -33,5 +46,18 @@ orientations = {
     'w':quaternion(0, sqrt(2)/2, -sqrt(2)/2, 0), # psi
     'x':quaternion(0, sqrt(2)/2, sqrt(2)/2, 0) # omega
 }
+for i in orientations.keys():
+    orientations[i] = orientations[i].absH()
+    print(f"({orientations[i].r}, {orientations[i].i}, {orientations[i].j}, {orientations[i].k})")
+
+
+mul_table = []
+for i in orientations.keys():
+    temp = []
+    for j in orientations.keys():
+        temp.append(get_key(orientations, quaternion.mul(orientations[i], orientations[j])))
+    mul_table.append(temp)
+print_matrix(mul_table)
+
 
 
