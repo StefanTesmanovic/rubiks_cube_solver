@@ -7,19 +7,6 @@ def get_key(dict, value):
         if dict[i].absH() == value.absH():
             return i
 
-def print_matrix(matrix):
-    col_widths = [max(len(str(cell)) for cell in col) for col in zip(*matrix)]
-    for row in matrix:
-        print(" | ".join(f"{str(cell):<{col_widths[i]}}" for i, cell in enumerate(row)))
-
-'''
-a = quaternion(sqrt(2)/2, 0, 0, -sqrt(2)/2)
-b = quaternion(0, 1, 0, 0)
-c = quaternion.mul(a, b)
-
-print(f"({c.r}, {c.i}, {c.j}, {c.k})")
-'''
-
 orientations = {
     'a':quaternion(1, 0, 0, 0), # alpha
     'b':quaternion(0, 1, 0, 0), # beta
@@ -46,12 +33,11 @@ orientations = {
     'w':quaternion(0, sqrt(2)/2, -sqrt(2)/2, 0), # psi
     'x':quaternion(0, sqrt(2)/2, sqrt(2)/2, 0) # omega
 }
+
 for i in orientations.keys():
     orientations[i] = orientations[i].absH()
-    print(f"({orientations[i].r}, {orientations[i].i}, {orientations[i].j}, {orientations[i].k})")
 
-
-mul_table = []
+mul_table = [] # the row number times the column number, different from the blog; a*b = matrix[a][b] (ord(a)-ord('a') and ord(b)-ord('b'))
 for i in orientations.keys():
     temp = []
     for j in orientations.keys():
