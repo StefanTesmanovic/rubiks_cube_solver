@@ -34,6 +34,33 @@ orientations = {
     'x':quaternion(0, sqrt(2)/2, sqrt(2)/2, 0) # omega
 }
 
+orientations_v2 = { # -i = w, -j = a, -k = s
+    'a':"", # alpha
+    'b':"ii", # beta
+    'c':"jj", # gamma
+    'd':"kk", # delta
+    'e':"i", # epsilon
+    'f':"j", # zeta
+    'g':"k", # eta
+    'h':"w", # theta
+    'i':"a", # iota
+    'j':"s", # kappa 
+    'k':"ij", # lambda
+    'l':"ia", # mu
+    'm':"ai", # nu
+    'n':"ji", # xi
+    'o':"wj", # omicron
+    'p':"wa", # pi
+    'q':"jw", # rho
+    'r':"aw", # sigma
+    's':"ijj", # tau
+    't':"wjj", # upsilon
+    'u':"jkk", # phi
+    'v':"akk", # chi
+    'w':"sii", # psi
+    'x':"kii" # omega
+}
+
 for i in orientations.keys():
     orientations[i] = orientations[i].absH()
 
@@ -43,6 +70,34 @@ for i in orientations.keys():
     for j in orientations.keys():
         temp.append(get_key(orientations, quaternion.mul(orientations[i], orientations[j])))
     mul_table.append(temp)
+
+cubies_order_no_empty = "AIBKXLEJFQURYZTVSCMDOWPGNH"
+cubies_order = "AIBKXLEJFQURY0ZTVSCMDOWPGNH"
+cubies_corners = "ABCDEFGH"
+cubies_edges = "IJKLMNOPQRST"
+cubies_centers = "UVWXYZ"
+
+cubies = {}
+width = 3
+length = 3
+height = 3
+colors = ['g', 'b', 'r', 'o', 'w', 'y']# [0:front, 1:back, 2:right, 3:left, 4:up, 5:bottom]
+for i in range(len(cubies_order)):
+    if cubies_order[i] == "0": continue
+    (front, back, right, left, up, bottom) = ('n', 'n', 'n', 'n', 'n', 'n') # n is for inside the cube
+    w_i = i % 3
+    l_i = (i % (width*height)) // 3
+    h_i = i // (width*height)
+    if w_i == 0: left = colors[3]
+    if w_i == width-1: right = colors[2]
+    if l_i == 0: front = colors[0]
+    if l_i == length-1: back = colors[1]
+    if h_i == 0: bottom = colors[5]
+    if h_i == height-1: up = colors[4]
+    cubies[cubies_order[i]] = [front, back, right, left, up, bottom]
+
+    
+
 
 
 

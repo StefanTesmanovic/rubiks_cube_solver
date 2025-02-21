@@ -28,7 +28,6 @@ class quaternion:
         if self.r == self.i == self.j == self.k == 0: return 0
         return -1
         
-    
     def absH(self):
         sgn = self.sgnH()
         return quaternion(Rational(sgn)*self.r, Rational(sgn)*self.i, Rational(sgn)*self.j, Rational(sgn)*self.k)
