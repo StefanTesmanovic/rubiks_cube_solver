@@ -62,7 +62,27 @@ class cubie:
                     sides[4], sides[2], sides[5], sides[3] = sides[2], sides[5], sides[3], sides[4]
         return sides
     
-    
+    vec_to_matrix_dict = {} # name of cubie, rotation, location
+    for i in cubies_order_no_empty:
+        vec_to_matrix_dict[i] = {}
+        for q in orientations.keys():
+            sides = rot_cubie(q, cubies[i])
+            l_i, w_i, h_i = 1, 1, 1
+            if sides[0] != 'n':
+                l_i = 0
+            if sides[1] != 'n':
+                l_i = length-1
+            if sides[2] != 'n':
+                w_i = width-1
+            if sides[3] != 'n':
+                w_i = 0
+            if sides[4] != 'n':
+                h_i = height-1
+            if sides[5] != 'n':
+                h_i = 0
+            vec_to_matrix_dict[i][q] = cubies_order[l_i*3 + w_i + h_i*length*width]
+        
+
     @staticmethod
     def vec_to_matrix(vec):
         matrix = []
@@ -107,13 +127,11 @@ class cubie:
                 h_i = height-1
             if sides[5] != 'n':
                 h_i = 0
-            print(cubies_order[l_i*3 + w_i + h_i*length*width])
-                
-
-        
+            #print(cubies_order[l_i*3 + w_i + h_i*length*width])
         return matrix # make it be a numpy matrix
 
 
 
 #print(cubie.rot_cubie('e', cubies['A']))
-cubie.vec_to_matrix("okplokplkookplplolkpgjifaa")
+#cubie.vec_to_matrix("okplokplkookplplolkpgjifaa")
+print(cubie.vec_to_matrix_dict['A']['w'])

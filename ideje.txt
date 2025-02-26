@@ -1,0 +1,1 @@
+Izbaciti centre jer su nebitni, mozda ce nositi neku bitnu informaciju za mrezu
