@@ -35,8 +35,8 @@ orientations = {
 }
 
 orientations_v2 = { # -i = w, -j = a, -k = s
-    'a':"", # alpha
-    'b':"ii", # beta
+    'a':"", # alpha   
+    'b':"ii", # beta ααζζααζζααααζζζζααααααζααα
     'c':"jj", # gamma
     'd':"kk", # delta
     'e':"i", # epsilon
@@ -70,7 +70,6 @@ for i in orientations.keys():
     for j in orientations.keys():
         temp.append(get_key(orientations, quaternion.mul(orientations[i], orientations[j])))
     mul_table.append(temp)
-
 cubies_order_no_empty = "AIBKXLEJFQURYZTVSCMDOWPGNH"
 cubies_order = "AIBKXLEJFQURY0ZTVSCMDOWPGNH"
 cubies_corners = "ABCDEFGH"

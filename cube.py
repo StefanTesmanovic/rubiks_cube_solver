@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
-import random
+from constants import *
+from state_rep import *
 
 class RubiksCube:
     ######## start of bulshit chatgpt code that I made work just for the sake of visualising the cube 
@@ -71,8 +72,45 @@ class RubiksCube:
         ]
         return square
     #### end of the bullshit code chatgpt code, start of my bullshit code :)
+    def setColors(self, vec):
+        for i in range(len(vec)):
+            #pos = cubie.vec_to_matrix_dict[chr(ord("A")+i)][vec[i]]
+            sides = cubie.rot_cubie(vec[i], cubies[chr(ord("A")+i)])
+            l_i, w_i, h_i = 1, 1, 1
+            if sides[0] != 'n':
+                l_i = 0
+            if sides[1] != 'n':
+                l_i = length-1
+            if sides[2] != 'n':
+                w_i = width-1
+            if sides[3] != 'n':
+                w_i = 0
+            if sides[4] != 'n':
+                h_i = height-1
+            if sides[5] != 'n':
+                h_i = 0
+
+            colors = {'g':"green", 'b':"blue", 'r':"red", 'y':"yellow", 'w':"white", 'o':"orange"}
+
+            # indexes are emirically calculated
+            if w_i == 0:
+                self.colors["L"][l_i][h_i] = colors[sides[3]]
+            if w_i == width-1:
+                self.colors["R"][2-l_i][h_i] = colors[sides[2]]
+            if h_i == 0: 
+                self.colors["D"][l_i][w_i] = colors[sides[5]]
+            if h_i == height-1:
+                self.colors["U"][2-l_i][w_i] = colors[sides[4]]
+            if l_i == 0:
+                self.colors["F"][2-h_i][w_i] = colors[sides[0]]
+            if l_i == length-1:
+                self.colors["B"][2-h_i][2-w_i] = colors[sides[1]]
+
+
+        return
     @staticmethod
-    def draw():
+    def draw(vec):
         cube = RubiksCube()
+        cube.setColors(vec)
         cube.draw_cube()
-RubiksCube.draw()
+RubiksCube.draw("llfoaenolaaefnfojjeajafaae")  #okplokplkookplplolkpgjifaa
