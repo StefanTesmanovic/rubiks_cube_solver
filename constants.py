@@ -36,7 +36,7 @@ orientations = {
 
 orientations_v2 = { # -i = w, -j = a, -k = s
     'a':"", # alpha   
-    'b':"ii", # beta ααζζααζζααααζζζζααααααζααα
+    'b':"ii", # beta 
     'c':"jj", # gamma
     'd':"kk", # delta
     'e':"i", # epsilon
@@ -64,7 +64,7 @@ orientations_v2 = { # -i = w, -j = a, -k = s
 for i in orientations.keys():
     orientations[i] = orientations[i].absH()
 
-mul_table = [] # the row number times the column number, different from the blog; a*b = matrix[a][b] (ord(a)-ord('a') and ord(b)-ord('b'))
+mul_table = [] # the row number times the column number, different from the blog; a*b = matrix[a][b] (ord(a)-ord('a') and ord(b)-ord('a'))
 for i in orientations.keys():
     temp = []
     for j in orientations.keys():
@@ -95,7 +95,32 @@ for i in range(len(cubies_order)):
     if h_i == height-1: up = colors[4]
     cubies[cubies_order[i]] = [front, back, right, left, up, bottom]
 
-    
+''' U=⟨ααζζααζζααααζζζζααααααζααα⟩
+    U′=⟨ααιιααιιααααιιιιααααααιααα⟩
+    D=⟨ιιααιιααιιιιαααααααααααιαα⟩
+    D′=⟨ζζααζζααζζζζαααααααααααζαα⟩
+    L=⟨θαθαθαθαααθαααθαθααθααααθα⟩
+    L′=⟨ϵαϵαϵαϵαααϵαααϵαϵααϵααααϵα⟩
+    R=⟨αϵαϵαϵαϵαααϵαααϵαϵαϵαααααϵ⟩
+    R′=⟨αθαθαθαθαααθαααθαθαθαααααθ⟩
+    F=⟨ηηηηααααηαααηαααηηααηααααα⟩
+    F′=⟨κκκκαααακααακααακκαακααααα⟩
+    B=⟨αααακκκκακααακαααακκακαααα⟩
+    B′=⟨ααααηηηηαηαααηααααηηαηαααα⟩
+'''
+moves = {}
+moves["U"] = "aaffaaffaaaaffffaaaaaafaaa"
+moves["U'"] = "aaiiaaiiaaaaiiiiaaaaaaiaaa"
+moves["D"] = "iiaaiiaaiiiiaaaaaaaaaaaiaa"
+moves["D'"] = "ffaaffaaffffaaaaaaaaaaafaa"
+moves["R"] = "aeaeaeaeaaaeaaaeaeaeaaaaae"
+moves["R'"] = "ahahahahaaahaaahahahaaaaah"
+moves["L"] = "hahahahaaahaaahahaahaaaaha"
+moves["L'"] = "eaeaeaeaaaeaaaeaeaaeaaaaea"
+moves["F"] = "ggggaaaagaaagaaaggaagaaaaa"
+moves["F'"] = "jjjjaaaajaaajaaajjaajaaaaa"
+moves["B"] = "aaaajjjjajaaajaaaajjajaaaa"
+moves["B'"] = "aaaaggggagaaagaaaaggagaaaa"
 
 
 

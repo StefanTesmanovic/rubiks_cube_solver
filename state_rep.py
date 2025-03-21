@@ -148,6 +148,8 @@ class cubie:
         resault = []
         for i in range(len(vec1)):
             pos = cubie.vec_to_matrix_dict[chr(ord("A")+i)][vec1[i]]
+            print(chr(ord("A")+i),vec1[i], pos)
+            print(vec2[ord(pos) - ord('A')], mul_table[ord(vec1[i]) - ord('a')][ord(vec2[ord(pos) - ord('A')]) - ord('a')])
             resault.append(mul_table[ord(vec1[i]) - ord('a')][ord(vec2[ord(pos) - ord('A')]) - ord('a')]) # just multiplication of orientations
         return resault
 
@@ -164,4 +166,4 @@ B = cubie.vec_to_matrix("aaaaaaaaaaaaaaaaaaaaaaaaaa") # cubie.vec_to_matrix("aaf
 resault = np.matmul(A, B)
 for row in resault:
             print([obj.orientation for obj in row])'''
-print(cubie.mul_vec("okplokplkookplplolkpgjifaa", "aaaaaaaaaaaaaaaaaaaaaaaaaa")) 
+print(cubie.mul_vec("okplokplkookplplolkpgjifaa", moves["U"])) 
