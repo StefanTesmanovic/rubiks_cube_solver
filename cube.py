@@ -49,7 +49,7 @@ class RubiksCube:
         ax.set_xlim([-2, 2])
         ax.set_ylim([-2, 2])
         ax.set_zlim([-2, 2])
-        ax.view_init(110, 270)  # Adjust the view angle for better visualization
+        ax.view_init(110, 290)  # Adjust the view angle for better visualization
         ax.axis("off")
 
         plt.show()
@@ -113,4 +113,4 @@ class RubiksCube:
         cube = RubiksCube()
         cube.setColors(vec)
         cube.draw_cube()
-RubiksCube.draw("llfoaenolaaefnfojjeajafaae")  #okplokplkookplplolkpgjifaa
+#RubiksCube.draw("llfoaenolaaefnfojjeajafaae")  #okplokplkookplplolkpgjifaa

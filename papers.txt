@@ -1,0 +1,8 @@
+Solving the Rubik’s cube with deep reinforcement learning and search
+    - koriste A* a heuristika im je mreza, idu od slozene ka dalje
+    - moram sve organe da prodam za takav hardver
+    - dali su mi do znanja da mora mnogo veca mreza da se koristi
+SOLVING THE RUBIK’S CUBE WITH APPROXIMATE POLICY ITERATION
+    - Prvo prave batch za dataset tako sto se pracenjem polise ide kroz stable
+        - dodju do nekog statea i racunaju value slicno kao q-value za deep q learning i polisu
+    - Na tome se posle radi suprevised learning 

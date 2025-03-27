@@ -103,24 +103,33 @@ for i in range(len(cubies_order)):
     L′=⟨ϵαϵαϵαϵαααϵαααϵαϵααϵααααϵα⟩
     R=⟨αϵαϵαϵαϵαααϵαααϵαϵαϵαααααϵ⟩
     R′=⟨αθαθαθαθαααθαααθαθαθαααααθ⟩
-    F=⟨ηηηηααααηαααηαααηηααηααααα⟩
+    F=⟨ηηηηααααηαααηαααηηααηααααα⟩ 
     F′=⟨κκκκαααακααακααακκαακααααα⟩
     B=⟨αααακκκκακααακαααακκακαααα⟩
     B′=⟨ααααηηηηαηαααηααααηηαηαααα⟩
 '''
 moves = {}
-moves["U"] = "aaffaaffaaaaffffaaaaaafaaa"
+moves["U"] =  "aaffaaffaaaaffffaaaaaafaaa"
 moves["U'"] = "aaiiaaiiaaaaiiiiaaaaaaiaaa"
-moves["D"] = "iiaaiiaaiiiiaaaaaaaaaaaiaa"
+moves["D"] =  "iiaaiiaaiiiiaaaaaaaaaaaiaa"
 moves["D'"] = "ffaaffaaffffaaaaaaaaaaafaa"
-moves["R"] = "aeaeaeaeaaaeaaaeaeaeaaaaae"
-moves["R'"] = "ahahahahaaahaaahahahaaaaah"
-moves["L"] = "hahahahaaahaaahahaahaaaaha"
+moves["R"] =  "aeaeaeaeaaaeaaaeaeeaaaaaae"
+moves["R'"] = "ahahahahaaahaaahahhaaaaaah"
+moves["L"] =  "hahahahaaahaaahahaahaaaaha"
 moves["L'"] = "eaeaeaeaaaeaaaeaeaaeaaaaea"
-moves["F"] = "ggggaaaagaaagaaaggaagaaaaa"
+moves["F"] =  "ggggaaaagaaagaaaggaagaaaaa"
 moves["F'"] = "jjjjaaaajaaajaaajjaajaaaaa"
-moves["B"] = "aaaajjjjajaaajaaaajjajaaaa"
+moves["B"] =  "aaaajjjjajaaajaaaajjajaaaa"
 moves["B'"] = "aaaaggggagaaagaaaaggagaaaa"
+
+moves_list = [
+    moves["U"], moves["U'"], moves["D"], moves["D'"],
+    moves["R"], moves["R'"], moves["L"], moves["L'"],
+    moves["F"], moves["F'"], moves["B"], moves["B'"]
+]
+
+move_names = ["U", "U'", "D", "D'", "R", "R'", "L", "L'", "F", "F'", "B", "B'"]
+
 
 
 

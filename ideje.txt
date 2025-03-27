@@ -1,1 +1,3 @@
 Izbaciti centre jer su nebitni, mozda ce nositi neku bitnu informaciju za mrezu
+
+pokusati specificno da embedujes sve uglove zajedno i sve ivice zajedno
